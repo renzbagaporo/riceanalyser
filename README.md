@@ -1,7 +1,6 @@
 ### What is this repository for? ###
 
-* This repository contains the C++ equivalent of the MATLAB segmentation algorithm and rice parameters analysis in https://www.dropbox.com/sh/ck3vq5f0zkqefe1/AABDasD5FcW4UBm45ca3kL8Ia?dl=0
-* 0.0.1
+* This repository contains the C++ equivalent of the MATLAB segmentation algorithm and rice grain analysis logic.
 
 ### How do I get set up? ###
 
