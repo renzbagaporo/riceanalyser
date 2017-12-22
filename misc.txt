@@ -1,0 +1,116 @@
+#ifdef TRACKER_TEST
+    cv::Point2i op;
+    cv::Point2i ep;
+    cv::Point2i bounds;
+    tracker t;
+    tracker u;
+    tracker v;
+
+/////////////////////////////// OK
+
+    //Movement test
+    op = cv::Point2i(76, 56);
+    ep = cv::Point2i(23, 56);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(1); // Must be 75
+    t.move(5); // Must be 70
+    t.move(8); // Must be 62
+
+    op = cv::Point2i(20, 63);
+    ep = cv::Point2i(94, 63);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(2); // Must be 22
+    t.move(3); // Must be 25
+    t.move(5); // Must be 30
+
+/////////////////////////////// OK
+
+    op = cv::Point2i(33, 82);
+    ep = cv::Point2i(33, 92);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(2); // Must be 84
+    t.move(3); // Must be 87
+    t.move(7); // Must be 94
+
+    op = cv::Point2i(62, 96);
+    ep = cv::Point2i(62, 32);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(2); // Must be 94
+    t.move(3); // Must be 91
+    t.move(5); // Must be 86
+
+/////////////////////////////// OK
+
+    ep = cv::Point2i(60, 55);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(40, 45);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(60, 45);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(40, 55);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+/////////////////////////////// OK
+
+    ep = cv::Point2i(55, 40);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(45, 40);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(45, 60);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+    ep = cv::Point2i(55, 60);
+    op = cv::Point2i(50, 50);
+    bounds = cv::Point2i(100,100);
+    t = tracker(1, ep, op, bounds);
+    t.move(10);
+
+////////////////////////////// OK
+    t = tracker(1, cv::Point2i(1, 1), cv::Point2i (50,50), cv::Point2i(100, 100));
+    u = tracker(1, cv::Point2i(1, 1), cv::Point2i (55,55), cv::Point2i(100, 100));
+    v = tracker(1, cv::Point2i(1, 1), cv::Point2i (52,52), cv::Point2i(100, 100));
+
+    bool a = t.check_collision_with(u, 3);
+    bool b = t.check_collision_with(v, 3);
+
+
+
+
+#endif
+
+
+
+
+
+            //Check for collisions, full mesh checking
+
